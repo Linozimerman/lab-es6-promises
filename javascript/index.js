@@ -112,6 +112,9 @@ async function obtainBroccoli(){
     imagenDelBroccolli = imagenDelBroccolli.replace(/.hidden/g, '')
 
 
+
+    //no puedo hacer que aparezca la imagen.
+
 /*     let broccoliImageElement = document.querySelector("#broccoliImg");
     broccoliImageElement.innerHTML.replace = `<img src="images/broccoli.jpg" id="broccoliImg"/>`
     console.log(broccoliImageElement); */
