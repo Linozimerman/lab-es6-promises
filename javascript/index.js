@@ -105,7 +105,7 @@ async function obtainBroccoli(){
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
     const step6 = await obtainInstruction("broccoli",5);
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
-    const step7 = await obtainInstruction("broccoli",5);
+    const step7 = await obtainInstruction("broccoli",6);
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
     let broccoliImgElement = document.querySelector("#broccoliImg");
     let imagenDelBroccolli = broccoliImgElement.innerHTML;
@@ -127,15 +127,25 @@ obtainBroccoli()
 
 // Bonus 2 - Promise all
 // ...
-let promise1 = obtainInstruction("brusselsSprouts",0)
+/* let promise1 = obtainInstruction("brusselsSprouts",0)
 let promise2 = obtainInstruction("brusselsSprouts",1)
 let promise3 = obtainInstruction("brusselsSprouts",2)
 let promise4 = obtainInstruction("brusselsSprouts",3)
 let promise5 = obtainInstruction("brusselsSprouts",4)
 let promise6 = obtainInstruction("brusselsSprouts",5)
 let promise7 = obtainInstruction("brusselsSprouts",6)
-let promise8 = obtainInstruction("brusselsSprouts",7)
-Promise.all([promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8])
+let promise8 = obtainInstruction("brusselsSprouts",7) */
+
+const stepsArray = [];
+
+for (let i = 0; i <= 7; i++) {
+  stepsArray.push(obtainInstruction("brusselsSprouts",i))
+  
+}
+
+
+
+Promise.all(stepsArray)
 .then((values) => {
   console.log(values)
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[0]}</li>`;
@@ -148,3 +158,4 @@ Promise.all([promise1, promise2, promise3, promise4, promise5, promise6, promise
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[7]}</li>`;
 
 })
+
